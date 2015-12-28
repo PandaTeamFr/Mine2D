@@ -16,11 +16,10 @@ import java.util.Map;
 
 public class SoundManager {
 
-    SoundSystem system;
+    public SoundSystem system;
     public Map<String, Sound> sounds;
 
     public SoundManager() {
-
         this.sounds = new HashMap<>();
     }
 
@@ -56,5 +55,12 @@ public class SoundManager {
         Sound s = new Sound(name, source, system, type);
         s.load();
         this.sounds.put(name, s);
+    }
+
+    public Sound getSound(String name) {
+        for(Sound s : sounds.values())
+            if(s.getName().equals(name))
+                return s;
+        return null;
     }
 }

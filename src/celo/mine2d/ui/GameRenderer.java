@@ -48,7 +48,7 @@ public class GameRenderer {
     public void setCurrentGuiScreen(GuiScreen currentGuiScreen) {
         if(currentGuiScreen == null)
             currentGuiScreen = new MainMenu();
-        if(currentGuiScreen != null)
+        else
             currentGuiScreen.unloadEvent();
         this.currentGuiScreen = currentGuiScreen;
         this.currentGuiScreen.loadEvent();

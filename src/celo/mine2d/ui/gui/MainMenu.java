@@ -38,14 +38,14 @@ public class MainMenu extends GuiScreen implements ActionListner {
         this.b.setActionListner(this);
         Sound s = this.m.sounds.get("sonTest");
         s.setType(Sound.Type.NORMAL);
-        s.setListener(screenSize.div(2));
-        s.setPos(new Vec2(screenSize.x,0));
+        s.setListener(screenSize.div(2),-45);
+        s.setPos(new Vec2(0,0));
         s.playSound();
     }
 
     @Override
     public void unloadEvent() {
-
+        this.f.dispose();
     }
 
     @Override

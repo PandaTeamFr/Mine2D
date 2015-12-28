@@ -74,6 +74,7 @@ public class GameFrame {
         }
 
         Display.destroy();
+        System.exit(0); //TODO : Faire une fonction pour netoyer la ram ---> unload des assets, sons, textures, puis fermeture propre du programe
     }
 
     /**

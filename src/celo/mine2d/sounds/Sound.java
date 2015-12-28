@@ -21,13 +21,15 @@ public class Sound {
         PLAY,PAUSE,STOP
     }
 
-    public String name;
-    public String source;
-    public SoundSystem system;
+    public final String name;
+    public final String source;
+    public final SoundSystem system;
     public State state = State.STOP;
     public Type type = Type.NORMAL;
     public Vec2 pos;
-    public Vec2 listener;
+    public Vec2 listenerPos;
+    public float listenerAngle;
+
     public boolean loop = false;
 
     public Sound(String name, String source, SoundSystem system, Type type) {
@@ -42,8 +44,12 @@ public class Sound {
         this(name, source, system, Type.NORMAL);
     }
 
-    public Vec2 getListener() {
-        return listener;
+    public Vec2 getListenerPos() {
+        return listenerPos;
+    }
+
+    public float getListenerAngle() {
+        return listenerAngle;
     }
 
     public State getState() {
@@ -54,9 +60,22 @@ public class Sound {
         return pos;
     }
 
-    public void setListener(Vec2 listener) {
-        this.listener = listener;
-        system.setListenerPosition(listener.x, listener.y, 0);
+    public String getName() {
+        return name;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setListener(Vec2 listenerPos, float listenerAngle) {
+        this.listenerPos = listenerPos;
+        system.setListenerPosition(listenerPos.x, listenerPos.y, 0);
+        system.setListenerAngle((float)Math.toRadians(listenerAngle));
     }
 
     public void setPos(Vec2 pos) {
@@ -74,7 +93,7 @@ public class Sound {
 
     public void load() {
         if(type.equals(Type.NORMAL))
-            system.newStreamingSource(true, this.name, this.source, false, 0,0,0,SoundSystemConfig.ATTENUATION_NONE,0);
+            system.newStreamingSource(true, this.name, this.source, false, 0, 0, 0, SoundSystemConfig.ATTENUATION_ROLLOFF, 0);
     }
 
     public void playSound() {
