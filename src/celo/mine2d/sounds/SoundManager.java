@@ -33,7 +33,7 @@ public class SoundManager {
                 this.system = new SoundSystem(LibraryJavaSound.class);
             else
                 this.system = new SoundSystem();
-            //SoundSystemConfig.setSoundFilesPackage("/ressources/sounds/");
+            SoundSystemConfig.setSoundFilesPackage("celo/mine2d/ressources/sounds/");
             SoundSystemConfig.setCodec("wav", CodecWav.class);
         }
         catch( SoundSystemException e )
