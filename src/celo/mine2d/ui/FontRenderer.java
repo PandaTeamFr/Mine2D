@@ -158,7 +158,7 @@ public class FontRenderer {
             int charWidth = charImage.getWidth();
             int charHeight = charImage.getHeight();
 
-            Bounds ch = new Bounds(charWidth, charHeight, x, image.getHeight() - charHeight);
+            Bounds ch = new Bounds(x, image.getHeight() - charHeight, charWidth, charHeight);
             g.drawImage(charImage, x, 0, null);
             x += ch.getWidth();
             bounds.put(c, ch);
@@ -190,8 +190,8 @@ public class FontRenderer {
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
 
-        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
-        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
 
         GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL11.GL_RGBA8, image.getWidth(), image.getHeight(), 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, buffer);
 
@@ -207,7 +207,6 @@ public class FontRenderer {
      * @return Char image
      */
     private BufferedImage createCharImage(java.awt.Font font, char c, boolean antiAlias) {
-        /* Creating temporary image to extract character size */
         BufferedImage image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = image.createGraphics();
         if (antiAlias) {
@@ -353,8 +352,8 @@ public class FontRenderer {
 
     /**
      * Disposes the font.
-     *//*
+     */
     public void dispose() {
-        texture.delete();
-    }*/
+        GL11.glDeleteTextures(id);
+    }
 }

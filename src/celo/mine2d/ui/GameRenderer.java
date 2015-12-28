@@ -42,10 +42,6 @@ public class GameRenderer {
 
     public void render(Render2D r) {
         this.currentGuiScreen.render(r);
-        GL11.glPushMatrix();
-        r.translate(new Vec2(50,50));
-        r.drawRect(r.uv(new Vec2(60,60)));
-        GL11.glPopMatrix();
         checkGLError("Render");
     }
 

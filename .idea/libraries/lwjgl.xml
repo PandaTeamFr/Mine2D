@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="lwjgl">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../Libs/lwjgl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Libs/lwjgl_util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Libs/PNGDecoder.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Libs/jinput.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Libs/Slick2D/slick-util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Libs/SoundSystem/SoundSystem.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Libs/paulscode/librarylwjglopenal/20100824/librarylwjglopenal-20100824.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Libs/paulscode/libraryjavasound/20101123/libraryjavasound-20101123.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Libs/paulscode/codecwav/20101023/codecwav-20101023.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Libs/paulscode/codecjorbis/20101023/codecjorbis-20101023.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../../../Libs/Slick2D/javadoc" />
+      <root url="file://$PROJECT_DIR$/../../../Libs/lwjgl/javadoc" />
+      <root url="file://$PROJECT_DIR$/../../../Libs/SoundSystem/Doc" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/../../../Libs/native" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>

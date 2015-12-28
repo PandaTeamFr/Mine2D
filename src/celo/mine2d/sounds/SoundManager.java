@@ -7,6 +7,7 @@ import paulscode.sound.codecs.CodecWav;
 import paulscode.sound.libraries.LibraryJavaSound;
 import paulscode.sound.libraries.LibraryLWJGLOpenAL;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -19,14 +20,20 @@ public class SoundManager {
     public Map<String, Sound> sounds;
 
     public SoundManager() {
-        this.system = new SoundSystem();
+
+        this.sounds = new HashMap<>();
     }
 
     public void init() {
         try
         {
-            SoundSystemConfig.addLibrary(LibraryLWJGLOpenAL.class);
-            SoundSystemConfig.addLibrary(LibraryJavaSound.class);
+            if(SoundSystem.libraryCompatible(LibraryLWJGLOpenAL.class))
+                this.system = new SoundSystem(LibraryLWJGLOpenAL.class);
+            else if(SoundSystem.libraryCompatible(LibraryJavaSound.class))
+                this.system = new SoundSystem(LibraryJavaSound.class);
+            else
+                this.system = new SoundSystem();
+            //SoundSystemConfig.setSoundFilesPackage("/ressources/sounds/");
             SoundSystemConfig.setCodec("wav", CodecWav.class);
         }
         catch( SoundSystemException e )
@@ -36,10 +43,18 @@ public class SoundManager {
     }
 
     public void loadSounds() {
-
+        this.addSound("sonTest", "sonTest.wav");
     }
 
-    public void addSound() {
+    public void addSound(String name, String source) {
+        Sound s = new Sound(name, source, system);
+        s.load();
+        this.sounds.put(name, s);
+    }
 
+    public void addSound(String name, String source, Sound.Type type) {
+        Sound s = new Sound(name, source, system, type);
+        s.load();
+        this.sounds.put(name, s);
     }
 }

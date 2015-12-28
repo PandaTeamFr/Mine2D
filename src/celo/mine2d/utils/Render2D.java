@@ -98,21 +98,21 @@ public class Render2D {
 	public void drawTexturedModalRect(ITexture t, Vec2 offset, Vec2 size)
 	{
 		float var7 = 1F / t.getSize().x;
-		float var8 = 1F / t.getSize().y;
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glEnable(GL11.GL_TEXTURE_2D);
-		GL11.glColor4f(1f, 1f, 1f, 1f);
-		GL11.glBindTexture(GL11.GL_TEXTURE_2D, t.getId());
-		GL11.glBegin(GL11.GL_QUADS);
-		{
-			addVertexWithUV(new Vec2(0, size.y), new Vec2(offset.x * var7, (offset.y + size.y) * var8));
-			addVertexWithUV(new Vec2(size.x, size.y), new Vec2((offset.x + size.x) * var7, (offset.y + size.y) * var8));
-			addVertexWithUV(new Vec2(size.x, 0), new Vec2((offset.x + size.x) * var7, (offset.y * var8)));
-			addVertexWithUV(new Vec2(0, 0), new Vec2(offset.x * var7, offset.y * var8));
-		}
-		GL11.glEnd();
-		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glDisable(GL11.GL_TEXTURE_2D);
+        float var8 = 1F / t.getSize().y;
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glColor4f(1f, 1f, 1f, 1f);
+        GL11.glBindTexture(GL11.GL_TEXTURE_2D, t.getId());
+        GL11.glBegin(GL11.GL_QUADS);
+        {
+            addVertexWithUV(new Vec2(0, size.y), new Vec2(offset.x * var7, (offset.y + size.y) * var8));
+            addVertexWithUV(new Vec2(size.x, size.y), new Vec2((offset.x + size.x) * var7, (offset.y + size.y) * var8));
+            addVertexWithUV(new Vec2(size.x, 0), new Vec2((offset.x + size.x) * var7, (offset.y * var8)));
+            addVertexWithUV(new Vec2(0, 0), new Vec2(offset.x * var7, offset.y * var8));
+        }
+        GL11.glEnd();
+        GL11.glDisable(GL11.GL_BLEND);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
 	}
 
 	public void addVertexWithUV(Vec2 vertex, Vec2 uv)

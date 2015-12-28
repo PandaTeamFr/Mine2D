@@ -18,7 +18,7 @@ public class TextureManager {
     }
 
     public void loadTextures() {
-        this.addTexture("test", new Texture("Idle__009.png"));
+        this.addTexture("test", new Texture("celo/mine2d/ressources/textures/Idle__009.png"));
     }
 
 
