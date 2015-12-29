@@ -8,6 +8,8 @@ import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -18,7 +20,6 @@ public class GameRenderer {
     public Logger logger = Main.getInstance().getLogger();
     public GameFrame frame;
     public GuiScreen currentGuiScreen;
-
 
     public GameRenderer(GameFrame frame) {
         this.frame = frame;
@@ -50,6 +51,9 @@ public class GameRenderer {
             currentGuiScreen = new MainMenu();
         else
             currentGuiScreen.unloadEvent();
+
+
+
         this.currentGuiScreen = currentGuiScreen;
         this.currentGuiScreen.loadEvent();
     }

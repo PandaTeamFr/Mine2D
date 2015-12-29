@@ -5,6 +5,7 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class MouseManager {
@@ -12,21 +13,22 @@ public class MouseManager {
 	public List<MouseListner> listners = new ArrayList<MouseListner>();
 
 	public void addMouseListner(MouseListner m) {
-		if(!listners.contains(m))
-			listners.add(m);
+        if(!listners.contains(m))
+            listners.add(m);
 	}
 
 	public void update() {
 		while (Mouse.next()) {
 			float mousey = Display.getHeight() - Mouse.getY();
 			Vec2 pos = new Vec2(Mouse.getX(), mousey);
-			for(MouseListner m : listners) {
+            for (int i = 0; i < listners.size(); i++) {
+				MouseListner m = listners.get(i);
 				m.mouseMoved(pos);
 				if (Mouse.getEventButtonState()) {
 					if (Mouse.getEventButton() == 0) {
 						m.mousePressed(pos);
 					}
-				}else {
+				} else {
 					if (Mouse.getEventButton() == 0) {
 						m.mouseReleased(pos);
 					}

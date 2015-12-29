@@ -3,6 +3,7 @@ package celo.mine2d.events;
 import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class KeyBoardManager {
@@ -17,7 +18,8 @@ public class KeyBoardManager {
 	public void update() {
 		Keyboard.enableRepeatEvents(true);
 		while (Keyboard.next()) {
-			for(KeyListner k : listners) {
+			for (int i = 0; i < listners.size(); i++) {
+				KeyListner k = listners.get(i);
 				int key = Keyboard.getEventKey();
 				if (Keyboard.getEventKeyState()) 
 					k.keyPressed(key);
