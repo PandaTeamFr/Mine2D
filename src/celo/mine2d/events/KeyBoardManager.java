@@ -3,7 +3,6 @@ package celo.mine2d.events;
 import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class KeyBoardManager {

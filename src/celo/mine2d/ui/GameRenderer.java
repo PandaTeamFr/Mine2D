@@ -3,13 +3,10 @@ package celo.mine2d.ui;
 import celo.mine2d.main.Main;
 import celo.mine2d.ui.gui.MainMenu;
 import celo.mine2d.utils.Render2D;
-import celo.mine2d.utils.Vec2;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
 /**

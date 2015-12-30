@@ -92,8 +92,8 @@ public class Render2D {
 	/**
 	 * Draws a textured rectangle
 	 * @param t Texture
-	 * @param offset
-	 * @param size
+	 * @param offset pos of rect
+	 * @param size size of rect
 	 */
 	public void drawTexturedModalRect(ITexture t, Vec2 offset, Vec2 size)
 	{
@@ -113,6 +113,37 @@ public class Render2D {
         GL11.glEnd();
         GL11.glDisable(GL11.GL_BLEND);
         GL11.glDisable(GL11.GL_TEXTURE_2D);
+	}
+
+	/**
+	 * Draws a textured rectangle
+	 * @param t Texture
+     * @param iSize size of image
+	 * @param offset pos of rect
+	 * @param size size of rect
+	 */
+	public void drawSizedTexturedModalRect(ITexture t, Vec2 iSize, Vec2 offset, Vec2 size)
+	{
+		float var7 = 1F / t.getSize().x;
+		float var8 = 1F / t.getSize().y;
+		GL11.glEnable(GL11.GL_BLEND);
+		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GL11.glColor4f(1f, 1f, 1f, 1f);
+		GL11.glBindTexture(GL11.GL_TEXTURE_2D, t.getId());
+
+		float X = (iSize.x * size.x / size.y) / (size.x / size.y);
+		float Y = iSize.y * X / iSize.x;
+
+		GL11.glBegin(GL11.GL_QUADS);
+		{
+			addVertexWithUV(new Vec2(0, Y), new Vec2(offset.x * var7, (offset.y + size.y) * var8));
+			addVertexWithUV(new Vec2(X, Y), new Vec2((offset.x + size.x) * var7, (offset.y + size.y) * var8));
+			addVertexWithUV(new Vec2(X, 0), new Vec2((offset.x + size.x) * var7, (offset.y * var8)));
+			addVertexWithUV(new Vec2(0, 0), new Vec2(offset.x * var7, offset.y * var8));
+		}
+		GL11.glEnd();
+		GL11.glDisable(GL11.GL_BLEND);
+		GL11.glDisable(GL11.GL_TEXTURE_2D);
 	}
 
 	public void addVertexWithUV(Vec2 vertex, Vec2 uv)

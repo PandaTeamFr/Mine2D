@@ -1,16 +1,5 @@
 package celo.mine2d.ui;
 
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import java.awt.FontFormatException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.util.HashMap;
-import java.util.Map;
-
 import celo.mine2d.utils.Bounds;
 import celo.mine2d.utils.Color;
 import celo.mine2d.utils.Vec2;
@@ -18,9 +7,15 @@ import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import static java.awt.Font.MONOSPACED;
-import static java.awt.Font.PLAIN;
-import static java.awt.Font.TRUETYPE_FONT;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.util.HashMap;
+import java.util.Map;
+
+import static java.awt.Font.*;
 
 public class FontRenderer {
 
