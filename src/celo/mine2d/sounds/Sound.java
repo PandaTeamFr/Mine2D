@@ -128,6 +128,8 @@ public class Sound {
     }
 
     public void unloadSound() {
+        if(isPlaying())
+            stopSound();
         system.unloadSound(this.source);
     }
 
