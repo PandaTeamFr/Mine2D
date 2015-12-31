@@ -3,15 +3,9 @@ package celo.mine2d.utils;
 import java.awt.*;
 import java.io.*;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.*;
-import java.util.List;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
+import java.util.Formatter;
 /**
  * Created by loucass003 on 28/12/2015.
  */

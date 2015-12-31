@@ -1,7 +1,5 @@
 package celo.mine2d.utils;
 
-import celo.mine2d.ui.GameFrame;
-
 import java.io.File;
 
 /**

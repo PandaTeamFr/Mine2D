@@ -4,10 +4,6 @@ import celo.mine2d.utils.Vec2;
 import paulscode.sound.SoundSystem;
 import paulscode.sound.SoundSystemConfig;
 
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 /**
  * Created by loucass003 on 24/12/2015.
  */
